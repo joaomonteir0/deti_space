@@ -1,5 +1,6 @@
 import { SearchBar } from "../components/SearchBar";
 import { Link } from "react-router-dom";
+import { PageHeader } from "../components/PageHeader";
 
 export const News = () => {
     const numberOfNews = 12;
@@ -10,8 +11,8 @@ export const News = () => {
         
     return(
         <>
-            <Header />
-            <SearchBar width={"20rem"}/>
+            <PageHeader title={"Notícias"}/>
+            <SearchBar width={"20rem"} class={"input-group position-fixed top-0 start-50 translate-middle-x"}/>
             <div style={{marginLeft: "15rem", marginTop: "13rem"}}>
                 <div className="container-fluid">
                     <div className="row g-3">
@@ -20,14 +21,6 @@ export const News = () => {
                 </div>
             </div>
         </>
-    )
-}
-
-function Header() {
-    return(
-        <div className="position-absolute top-0 start-50 translate-middle-x mt-3">
-            <p className="fs-1 text-primary">Noticias</p>
-        </div>
     )
 }
 

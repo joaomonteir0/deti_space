@@ -6,10 +6,10 @@ import helpIcon from '../assets/help.png';
 
 function Navbar() {
     const btns = [
-        {to: "#", imgSrc: homeIcon, title: "Início"},
-        {to: "#", imgSrc: newsIcon, title: "Notícias"},
-        {to: "#", imgSrc: notesIcon, title: "Apontamentos"},
-        {to: "#", imgSrc: helpIcon, title: "Ajuda"}
+        {to: "/", imgSrc: homeIcon, title: "Início"},
+        {to: "/news", imgSrc: newsIcon, title: "Notícias"},
+        {to: "/notes", imgSrc: notesIcon, title: "Apontamentos"},
+        {to: "/help", imgSrc: helpIcon, title: "Ajuda"}
     ]
     return (
         <div className='d-flex flex-column position-fixed top-50 start-0 translate-middle-y bg-info-subtle rounded-end p-4'>

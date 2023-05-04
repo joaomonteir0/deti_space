@@ -1,24 +1,26 @@
 import './App.css'
 import Navbar from './components/Navbar';
-import {Route,Routes} from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { News } from './pages/News';
 import { Notes } from './pages/Notes';
-import {LogIn} from './components/LogIn';
-import  {UserBox} from './components/UserBox';
+import { LogIn } from './components/LogIn';
+import { UserBox } from './components/UserBox';
+import { useState } from 'react';
+import { Help } from './pages/Help';
 
 function App() {
-  let isLogin = false;
+  const [isLoggedIn,setLogIn] = useState(false);
   return (
     <div>
-      {/* <h1>Oi</h1> */}
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/news' element={<News/>} />
         <Route path='/notes' element={<Notes/>} />
+        <Route path='/help' element={<Help />} />
       </Routes>
-      {isLogin ? <UserBox /> : <LogIn />}
+      {isLoggedIn ? <UserBox onClick={() => {setLogIn(false)}}/> : <LogIn onClick={() => {setLogIn(true)}}/>}
     </div>
     
   )

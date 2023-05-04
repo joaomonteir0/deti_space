@@ -1,4 +1,4 @@
-import {Navlink} from './Navlink';
+import { Link } from "react-router-dom";
 import homeIcon from '../assets/home.png';
 import newsIcon from '../assets/newspaper.png';
 import notesIcon from '../assets/notes.png';
@@ -19,6 +19,17 @@ function Navbar() {
                 })
             }    
         </div>
+    )
+}
+
+function Navlink(props) {
+    return (
+        <Link to={props.to}>
+            <button className="w-100 mb-3 btn btn-info">
+                <img src={props.imgSrc} style={{width: "3rem"}}/><br/>
+                <span>{props.title}</span>
+            </button>
+        </Link>
     )
 }
 

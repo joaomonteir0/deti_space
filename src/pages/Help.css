@@ -15,11 +15,43 @@
 }
 
 .sobreNos{
-    background-color: rgb(195, 195, 255);
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.links{
+.topo h1{
+    text-align: center;
+}
+
+.linksTitulo{
     display: inline;
+    border-left: 1px solid var(--cinze-escuro);
+    padding-left: 30px;
+}
+
+.links1{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+.links1{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.links1 a {
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.links1 a:hover {
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: normal;
 }
 
 .contato{
@@ -31,4 +63,6 @@
     width: 100%;
     height: 60%;
     grid-template-columns: 60% 40%;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }

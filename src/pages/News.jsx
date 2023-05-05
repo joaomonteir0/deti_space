@@ -31,7 +31,7 @@ function NewsInstance(props) {
                 <div className="card-body">
                     <h5 className="card-title">{props.newsTitle}</h5>
                     <p className="card-text">{props.newsDescription}</p>
-                    <Link to={"#"} className="btn btn-primary">
+                    <Link to={`/noticia_exemplo`} className="btn btn-primary">
                         Ler mais
                     </Link>
                 </div>

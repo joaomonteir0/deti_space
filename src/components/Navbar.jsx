@@ -3,11 +3,13 @@ import homeIcon from '../assets/home.png';
 import newsIcon from '../assets/newspaper.png';
 import notesIcon from '../assets/notes.png';
 import helpIcon from '../assets/help.png';
+import forumIcon from '../assets/forum.png';
 
 function Navbar() {
     const btns = [
         {to: "/", imgSrc: homeIcon, title: "Início"},
         {to: "/news", imgSrc: newsIcon, title: "Notícias"},
+        {to: "/forum", imgSrc: forumIcon, title: "Forum"},
         {to: "/notes", imgSrc: notesIcon, title: "Apontamentos"},
         {to: "/help", imgSrc: helpIcon, title: "Ajuda"}
     ]

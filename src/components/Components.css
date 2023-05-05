@@ -13,6 +13,7 @@
 }
 
 .alterar-menu{
+    z-index: 999;
     background-color: #171717 !important;
     margin-left: 10px !important;
     border-radius: 20px !important;

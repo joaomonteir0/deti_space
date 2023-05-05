@@ -1,0 +1,34 @@
+.holder{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bege);
+}
+
+.content{
+    width: 80%;
+    background: none !important;
+    max-width: 1200px;
+    margin: auto;
+    height: 100vh;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.sobreNos{
+    background-color: rgb(195, 195, 255);
+}
+
+.links{
+    display: inline;
+}
+
+.contato{
+    width: 100%;
+}
+
+.topo{
+    display: grid;
+    width: 100%;
+    height: 60%;
+    grid-template-columns: 60% 40%;
+}

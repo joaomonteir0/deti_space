@@ -13,12 +13,13 @@
 }
 
 .alterar-menu{
+    z-index: 999;
     background-color: #171717 !important;
     margin-left: 10px !important;
     border-radius: 20px !important;
     width: 150px !important;
     display: flex;
-    align-items: center
+    align-items: center;
     text-align: center;
     height: 70%;
     gap: 24px;

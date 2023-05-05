@@ -1,3 +1,9 @@
+a {
+    color: inherit; /* Inherit the text color from the parent element */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Change cursor to indicate clickable link */
+  }
+
 :root{
     --cinze-escuro: #303633;
     --preto: #000;
@@ -6,4 +12,29 @@
     --vermelho: #DA6545;
     --branco: #fff;
     --bege: #FFFAF1;
+    --verde: #50bd61;
+}
+
+.fred{
+    color: var(--vermelho);
+}
+
+.fgreen{
+    color: var(--verde);
+}
+
+.fazul{
+    color: var(--azul);
+}
+
+.bgred{
+    background-color: var(--vermelho);
+}
+
+.bggreen{
+    background-color: var(--verde);
+}
+
+.bgblue{
+    background-color: var(--azul);
 }

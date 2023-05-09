@@ -12,6 +12,8 @@
 .topo{
     display: grid;
     grid-template-columns: 70% 30%;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
 }
 
 .voltar{

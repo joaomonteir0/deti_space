@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
   
   .fundo img {
@@ -12,19 +13,21 @@
     height: 100%;
     position: absolute;
     z-index: 0;
-    filter: blur(10px);
-    animation: gradient 0.1s ease-in-out infinite alternate;
+    filter: blur(4px) grayscale(100%);
   }
-  
-  @keyframes gradient {
-    0% {
-      filter: hue-rotate(0deg) blur(3px);
-    }
-    50% {
-      filter: hue-rotate(180deg) blur(3px);
-    }
-    100% {
-      filter: hue-rotate(360deg) blur(3px);
-    }
+
+  .fundo  .title{
+    z-index: 99;
+    color: white;
+    font-size: 85px;
+    letter-spacing: 5px;
+    text-shadow: 2px 0px 10px rgba(255, 255, 255, 0.51);
   }
-  
+
+  .fundo .desc {
+    z-index: 98;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-shadow: 2px 0px 10px rgba(255, 255, 255, 0.51);
+  }

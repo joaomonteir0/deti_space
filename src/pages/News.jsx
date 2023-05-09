@@ -14,7 +14,7 @@ export const News = () => {
         <>
         <div className="news_holder">
             <div className="news_topo">
-                <PageHeader title={"Notícias"} subtitle={"Lorem ipsum dolor sit amet consectetur."}/>
+                <PageHeader title={"- Notícias -"} subtitle={"Lorem ipsum dolor sit amet consectetur."}/>
                 <SearchBar />
             </div>
             <div className="container_news">

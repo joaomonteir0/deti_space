@@ -1,10 +1,10 @@
-.holder{
+.holder {
     width: 100vw;
     height: 100vh;
     background-color: var(--bege);
 }
 
-.content{
+.content {
     width: 80%;
     background: none !important;
     max-width: 1200px;
@@ -14,55 +14,109 @@
     padding-bottom: 40px;
 }
 
-.sobreNos{
+.sobreNos {
     padding-left: 40px;
     padding-right: 40px;
 }
 
-.topo h1{
+.topo h1 {
     text-align: center;
 }
 
-.linksTitulo{
+.linksTitulo {
     display: inline;
     border-left: 1px solid var(--cinze-escuro);
     padding-left: 30px;
 }
 
-.links1{
+.links {
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
 
-.links1{
+.links1 {
     text-align: center;
     color: rgb(0, 0, 0);
 }
 
-.links1 a {
+.links a {
     text-decoration: underline;
     transition: all 0.2s ease-in-out;
-    font-size: 1.2rem;
     font-weight: normal;
 }
 
-.links1 a:hover {
-    text-decoration: underline;
-    transition: all 0.2s ease-in-out;
-    font-size: 1.2rem;
-    font-weight: normal;
+.links a:hover {
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.contato{
-    width: 100%;
+.links {
+    text-align: center;
+    padding-left: 10px;
 }
 
-.topo{
+.topo {
     display: grid;
     width: 100%;
     height: 60%;
     grid-template-columns: 60% 40%;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.contato {
+    padding-left: 40px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-top: 20px;
+}
+
+.contato label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.topoContatos{
+    display: grid;
+    grid-template-columns: 40% 10% 50%;
+}
+.contato input,
+.contato textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.contato input:focus,
+.contato textarea:focus {
+    outline: none;
+    border-color: var(--azul);
+    box-shadow: 0 0 5px var(--azul);
+}
+
+.contato button {
+    padding: 10px;
+    background-color: var(--azul);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.contato button:hover {
+    background-color: var(--azul-claro);
+}
+
+@media only screen and (max-width: 600px) {
+    .formulario {
+        width: 90%;
+    }
 }

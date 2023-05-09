@@ -28,12 +28,40 @@ export const Help = () => {
                                 <a href="https://aauav.pt/" target="_blank">AAUAV</a>
 
                             </div>
-                            <div className="links2">bb</div>
+                            <div className="links2">
+                                <h5>Outros</h5>
+                                <br></br>
+                                <a href="https://www.ua.pt/deti/PageText.aspx?id=15031" target="_blank">DETI</a>
+                                <p></p>
+                                <a href="https://www.ua.pt/" target="_blank">UA</a>
+                                <p></p>
+
+                            </div>
                         </div>
 
                     </div>
                 </div>
-                <div className="contato" >c
+                <div className="contato">
+                    <h1> - Contato - </h1>
+                    <br></br>
+                    <form>
+                        <div className="topoContatos">
+                        <div className="form-group">
+                            <label htmlFor="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" required />
+                        </div>
+                        <div></div>
+                        <div className="form-group">
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="mensagem">Mensagem:</label>
+                            <textarea id="mensagem" rows="5" name="mensagem" required></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>

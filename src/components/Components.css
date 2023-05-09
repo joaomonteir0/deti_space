@@ -23,6 +23,9 @@
     text-align: center;
     height: 70%;
     gap: 24px;
+    -webkit-box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.24);
+    -moz-box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.24);
+    box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.24);
 }
 
 .filtro-menu{

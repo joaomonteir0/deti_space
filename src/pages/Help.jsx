@@ -61,6 +61,7 @@ export const Help = () => {
                             <textarea id="mensagem" rows="5" name="mensagem" required></textarea>
                         </div>
                         <button type="submit">Enviar</button>
+                        <p>(esta ação ira enviar um email automatico para detispace@gmail.com)</p>
                     </form>
                 </div>
             </div>

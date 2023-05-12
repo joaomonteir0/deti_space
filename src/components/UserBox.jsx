@@ -1,19 +1,22 @@
 import userIcon from '../assets/user.png';
+import './Components.css';
 
 export const UserBox = (props) => {
     const styles = {
-        width: "4em"
+        width: "6em"
     }
     return (
-        <div className="d-flex position-fixed top-0 end-0 mt-3 me-4">
-            <div>
-                <span>Utilizador Test</span><br/>
-                <span><button className="btn btn-primary">Opcoes</button></span>
-                <span><button className="btn btn-danger" onClick={props.onClick}>Sair</button></span>
-            </div>
-            <div className="ms-3">
-                <img src={userIcon} style={styles}/>
-            </div>
+        <div className="user-box-container">
+        <div className="user-info">
+          <span className="user-name">Maria Ribeiro</span>
+          <div className="user-buttons">
+            <button className="btn btn-primary">Opções</button>
+            <button className="btn btn-danger" onClick={props.onClick}>Sair</button>
+          </div>
         </div>
+        <div className="user-icon">
+          <img src="src/assets/Maria.png" style={styles} alt="User Icon" />
+        </div>
+      </div>
     )
 }

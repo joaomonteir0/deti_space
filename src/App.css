@@ -2,7 +2,13 @@ a {
     color: inherit; /* Inherit the text color from the parent element */
     text-decoration: none; /* Remove underline */
     cursor: pointer; /* Change cursor to indicate clickable link */
-  }
+}
+
+.holder{
+    background-color: var(--bege);
+    padding-top: 50px;
+
+}
 
 :root{
     --cinze-escuro: #171717;
@@ -11,8 +17,9 @@ a {
     --azul: #5aadb9;
     --vermelho: #DA6545;
     --branco: #fff;
-    --bege: #FFFAF1;
+    --bege: #F8f6f1;
     --verde: #50bd61;
+    --cinza: #596683;
 }
 
 .fred{

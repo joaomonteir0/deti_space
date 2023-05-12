@@ -14,7 +14,6 @@
 }
 
 .sobreNos {
-    padding-left: 40px;
     padding-right: 40px;
 }
 
@@ -65,7 +64,6 @@
 }
 
 .contato {
-    padding-left: 40px;
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -104,6 +102,7 @@
     background-color: var(--azul);
     color: white;
     font-size: 1.2rem;
+    line-height: 1rem;
     border-radius: 5px;
     border: none;
     cursor: pointer;

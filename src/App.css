@@ -4,9 +4,11 @@ a {
     cursor: pointer; /* Change cursor to indicate clickable link */
 }
 
-.holder{
+body {
     background-color: var(--bege);
     padding-top: 50px;
+    background-position: 100%;
+    background-attachment: fixed;
 
 }
 
@@ -17,7 +19,7 @@ a {
     --azul: #5aadb9;
     --vermelho: #DA6545;
     --branco: #fff;
-    --bege: #fbf7f1;
+    --bege: #fcf9f5;
     --verde: #50bd61;
     --cinza: #596683;
 }

@@ -17,11 +17,10 @@
     background-color: #171717 !important;
     margin-left: 10px !important;
     border-radius: 20px !important;
-    width: 150px !important;
+    width: 140px !important;
     display: flex;
     align-items: center;
     text-align: center;
-    height: 70%;
     gap: 24px;
     -webkit-box-shadow: 10px 10px 17px -7px rgba(0, 0, 0, 0.24);
     -moz-box-shadow: 10px 10px 17px -7px rgba(0, 0, 0, 0.24);
@@ -37,6 +36,8 @@
 .filtro-menu:hover {
     filter: brightness(100%) invert(20%);
 }
+
+/* user box */
 
 .user-box-container {
     position: fixed;
@@ -61,7 +62,7 @@
 .user-name {
     font-weight: bold;
     font-size: 1.2rem;
-    al
+    padding: 5px;
 }
 
 .user-buttons button {
@@ -85,7 +86,7 @@
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color:#363e4f;
 }
 
 .btn-danger {
@@ -96,4 +97,13 @@
 
 .btn-danger:hover {
     background-color: #b02a37;
+}
+
+.login{
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+    display: flex;
 }

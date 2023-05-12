@@ -1,5 +1,6 @@
 import userIcon from '../assets/user.png';
 import './Components.css';
+import {Sair} from './Sair'; 
 
 export const UserBox = (props) => {
     const styles = {

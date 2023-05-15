@@ -1,7 +1,11 @@
 import React from 'react';
 import './Forum.css';
 
-const New_topico = ({ closeModal , conteudo}) => {
+const New_topico = ({ closeModal , conteudo, handleFormSubmit}) => {
+    const handleSubmit = (e) => {
+        handleFormSubmit(e);
+        closeModal(); // Assuming closeModal is a function to close the modal or form
+      };
   return (
     <div className='criar-topico'>
         <form action="">

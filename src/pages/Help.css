@@ -89,7 +89,8 @@
     border: 1px solid #ccc;
     margin-bottom: 15px;
     font-size: 1.2rem;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 .contato input:focus,

@@ -1,8 +1,9 @@
 import { PageHeader } from "../components/PageHeader"
 import { SearchBar } from "../components/SearchBar"
 import { Select } from "../components/Select"
+import { Link } from 'react-router-dom';
 
-export const Notes = () => {
+export const Notes = (props) => {
     const badges = {
         TestesExames: {color: "success",name: "Teste e exames"},
         Resumos: {color: "secondary", name: "Resumos"},
@@ -28,7 +29,7 @@ export const Notes = () => {
 
     return(
         <>
-            <PageHeader title={"Apotamentos"} />
+            <PageHeader title="Apontamentos" />
             <div style={{marginLeft: "20rem", marginTop: "10rem"}}>
                 <div className="container-fluid">
                     <div className="row">
@@ -40,7 +41,11 @@ export const Notes = () => {
                             </div>
                         </div>
                         <div className="col-md-auto">
-                            <button className="btn btn-primary mb-3">Meus Apontamentos</button>
+                            {props.isLoggedIn ? 
+                                <Link to="/user#Apontamentos">
+                                    <button className="btn btn-primary mb-3">Meus Apontamentos</button> 
+                                </Link>
+                                : ''}  
                             <SearchBar width={"20rem"} class={"input-group mb-3"}/>
                             <Select default={"Ano Letivo"} options={["2022-2023","2021-2022","2020-2021","2019-2020"]}/>
                             <Select default={"Disciplina"} options={["Calculo 1","MPEI","Sistemas Operativos","Alga","IHC"]}/>

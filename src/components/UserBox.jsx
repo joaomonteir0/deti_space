@@ -1,22 +1,23 @@
-import userIcon from '../assets/user.png';
+import userIcon from '../assets/Maria.png';
+import { Link } from 'react-router-dom';
 import './Components.css';
-import {Sair} from './Sair'; 
 
 export const UserBox = (props) => {
-    const styles = {
-        width: "6em"
-    }
     return (
         <div className="user-box-container">
         <div className="user-info">
           <span className="user-name">Maria Ribeiro</span>
           <div className="user-buttons">
-            <button className="btn btn-primary">Opções</button>
+            <span>
+              <Link to="/user">
+                <button className="btn btn-primary me-2">Opcoes</button>
+              </Link>
+            </span>
             <button className="btn btn-danger" onClick={props.onClick}>Sair</button>
           </div>
         </div>
         <div className="user-icon">
-          <img src="src/assets/Maria.png" style={styles} alt="User Icon" />
+          <img src={userIcon} style={{width: "6em"}} alt="User Icon" />
         </div>
       </div>
     )

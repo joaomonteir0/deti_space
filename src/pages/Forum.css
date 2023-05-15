@@ -1,0 +1,42 @@
+.criar-topico{
+    display: flex;
+    flex-direction: column;
+}
+
+.criar-topico form{
+    display: flex;
+    flex-direction: column;
+}
+
+.criar-topico form input,textarea, select{
+    max-width: 50%;
+    border-radius: 5px;
+    border: none;
+    line-height: 50px;
+    outline: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    background-color: rgb(238, 238, 238);
+    margin-bottom: 15px;
+}
+
+select{
+    height: 50px;
+}
+
+.criar-topico form input::placeholder{
+    color: rgb(129, 129, 129);
+}
+
+.criar-topico form input:focus, textarea:focus{
+    background-color: var(--azul);
+    color: white;
+}
+
+.criar-topico-text{
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 300px;
+    line-height: 45px !important;
+}

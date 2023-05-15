@@ -121,6 +121,12 @@
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
+    margin-top: 5px;
+    transition: 0.15s all ease-in-out;
+}
+
+.login-button:hover{
+    background-color: var(--bege);
 }
 
 .login-button img{

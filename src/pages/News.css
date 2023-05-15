@@ -140,9 +140,9 @@ input::placeholder {
     padding: 10px 20px;
     border-radius: 5px;
     color: var(--branco);
+    transition: 0.2s all ease-in-out;
 }
 
 .button-noticias:hover{
-    transition: 0.1s all ease-in-out;
     background-color: var(--azul);
 }

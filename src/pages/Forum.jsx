@@ -1,56 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
 import './News.css';
-import New_topico from './New_topico.jsx';
+import NewTopico from './New_topico.jsx';
 import Button from '../components/Button.jsx';
+import { Link } from 'react-router-dom';
 
-export const Forum = () => {
-    const [topicTitle, setTopicTitle] = useState('');
-    const [topicCategory, setTopicCategory] = useState('Categoria');
-    const [topicContent, setTopicContent] = useState('');
-    const [topics, setTopics] = useState([]);
-    const [topicId, setTopicId] = useState(0);
 
-    const generateUniqueId = () => {
-        const newId = topicId + 1;
-        setTopicId(newId);
-        return newId;
+export const Forum = (closeModal) => {
+  const [topics, setTopics] = useState([]);
+  const [cookies, setCookies] = useCookies(['topics']);
+  const [loading, setLoading] = useState(true);
+  const navigateTo = useNavigate(); // Create a navigateTo function
+
+  const generateUniqueId = () => {
+    const timestamp = Date.now().toString(36);
+    const random = Math.random().toString(36).substr(2, 5);
+    return timestamp + random;
+  };
+
+  useEffect(() => {
+    if (loading) {
+      const storedTopics = cookies.topics;
+      if (storedTopics) {
+        setTopics(storedTopics);
+      }
+      setLoading(false);
+    }
+  }, [cookies, loading]);
+
+  const handleFormSubmit = (topic) => {
+    const newTopic = {
+      id: generateUniqueId(),
+      ...topic,
     };
+    setTopics((prevTopics) => [...prevTopics, newTopic]);
+  };    
 
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        
-        // Check if all fields are filled
-        if (topicTitle && topicCategory !== 'Categoria' && topicContent) {
-          // Create a new topic object
-          const newTopic = {
-            id: generateUniqueId(),
-            title: topicTitle,
-            category: topicCategory,
-            content: topicContent,
-          };
-    
-          // Add the new topic to the list
-          setTopics((prevTopics) => [...prevTopics, newTopic]);
-    
-          // Redirect to the page with the topic ID
-          // You can use a router library like React Router for navigation
-          // Replace `/topics/:id` with the actual route to the topic page
-          history.push(`/topics/${newTopic.id}`);
-        }
-      };
+  useEffect(() => {
+    setCookies('topics', topics, { path: '/' });
+  }, [topics, setCookies]);
 
-    return (
-        <div className="holder" style={{marginTop: '40px'}}>
-            <Button conteudo={<New_topico handleFormSubmit={handleFormSubmit} />} title="Criar um novo tópico" desc="Lorem ipsum dolor sit amet." />
+  const handleTopicClick = (topicId) => {
+    navigateTo(`/forum/${topicId}`);
+  };
+  
 
-            <div className="topic-box">
-                {/* Map through the list of topics and render each title in a box */}
-                {topics.map((topic) => (
-                    <div key={topic.id} className="topic-title-box">
-                        <h2>{topic.title}</h2>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className="holder" style={{ marginTop: '40px' }}>
+      <Button
+        conteudo={<NewTopico handleFormSubmit={handleFormSubmit} closeModal={closeModal} />}
+        title="Criar um novo tópico"
+        desc="Lorem ipsum dolor sit amet."
+      />
+
+      <div className="topic-box">
+        {topics.map((topic) => (
+          <div
+            key={topic.id}
+            className="topic-title-box"
+            onClick={() => handleTopicClick(topic.id)} // Add onClick handler
+          >
+            <h2>{topic.title}</h2>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};

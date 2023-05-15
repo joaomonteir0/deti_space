@@ -79,6 +79,7 @@
 /* ALL NEWS PAGE */
 
 .news_holder{
+    box-sizing: border-box;
     max-width: 1120px;
     margin: auto;
     display: flex;

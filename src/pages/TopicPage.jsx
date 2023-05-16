@@ -1,47 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import './Forum.css';
 
 const TopicPage = () => {
+  const location = useLocation();
   const { topicId } = useParams();
-  const [topic, setTopic] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const topics = location.state?.topics || [];
 
-  useEffect(() => {
-    // Fetch the topic data based on the topicId
-    // Replace this with your actual API call or data retrieval logic
-    const fetchTopic = async () => {
-      try {
-        // Simulating API call delay with setTimeout
-        setTimeout(() => {
-          const topicData = {
-            id: topicId,
-            title: 'Sample Topic Title',
-            content: 'Sample Topic Content',
-          };
-          setTopic(topicData);
-          setLoading(false);
-        }, 1000);
-      } catch (error) {
-        console.error('Error fetching topic:', error);
-        setLoading(false);
-      }
-    };
+  // Find the topic with the matching topicId
+  const topicData = topics.find((topic) => topic.id === topicId);
 
-    fetchTopic();
-  }, [topicId]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!topic) {
+  if (!topicData) {
+    // Handle the case when the topic data is not found
     return <div>Topic not found</div>;
   }
 
   return (
-    <div>
-      <h2>{topic.title}</h2>
-      <p>{topic.content}</p>
+    <div className='topico'>
+      <a className="voltar alinhar" href="/forum">« Voltar para o fórum</a>
+      <h2 className='titulo'>{topicData.title}</h2>
+      <p className='categoria'>{topicData.category}</p>
+      <p className='conteudo'>{topicData.content}</p>
     </div>
   );
 };

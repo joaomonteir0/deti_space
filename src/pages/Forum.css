@@ -40,3 +40,89 @@ select{
     height: 300px;
     line-height: 45px !important;
 }
+
+/* pagina onde aparecem todos os tópicos /forum */
+
+.topic-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.topic-title-box{
+    background-color: rgb(253, 219, 219);
+    height: 110px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 10px;
+    transition: 0.1s all ease-in-out;
+}
+
+.topic-title-box:hover{
+    background-color: goldenrod;
+}
+
+.category1 {
+    background-color: rgb(218, 255, 218); /* Replace with the desired color for category 1 */
+  }
+  
+  .category2 {
+    background-color: rgb(199, 199, 253); /* Replace with the desired color for category 2 */
+  }
+  
+  .category3 {
+    background-color: rgb(239, 176, 176); /* Replace with the desired color for category 3 */
+  }
+  .category4 {
+    background-color: rgb(215, 215, 215); /* Replace with the desired color for category 3 */
+  }
+
+.botao-criar-estilinho{
+    padding: 10px 20px;
+    background-color: var(--azul);
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: 0.2s all ease-in-out;
+    color: white;
+}
+
+.botao-criar-estilinho:hover{
+    background-color: var(--verde);
+}
+
+.topico{
+    margin: 0 auto;
+    width: 1120px;
+    margin-top: 60px;
+    background-color: rgb(221, 221, 221);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.topico .categoria{
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: var(--verde);
+}
+
+.topico .conteudo{
+    font-size: 18px;
+}
+
+.topico .alinhar{
+    width: fit-content;
+    padding: 5px 20px;
+    float: right;
+    transition: 0.15s all ease-in-out;
+}
+
+.topico .alinhar:hover {
+    background-color: var(--verde);
+}

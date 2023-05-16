@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
+import '../pages/Forum.css';
 
 const Button = ({ closeMolda, conteudo, title, desc }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const Button = ({ closeMolda, conteudo, title, desc }) => {
 
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal} className={'botao-criar-estilinho'}>Criar Tópico</button>
       {isOpen && <Modal closeModal={closeModal} conteudo={conteudo} title={title} desc={desc}/>}
     </div>
   );

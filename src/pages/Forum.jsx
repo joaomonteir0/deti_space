@@ -5,9 +5,10 @@ import './News.css';
 import NewTopico from './New_topico.jsx';
 import Button from '../components/Button.jsx';
 import { Link } from 'react-router-dom';
+import './Forum.css';
 
 
-export const Forum = (closeModal) => {
+export const Forum = ({closeModal,}) => {
   const [topics, setTopics] = useState([]);
   const [cookies, setCookies] = useCookies(['topics']);
   const [loading, setLoading] = useState(true);
@@ -42,8 +43,25 @@ export const Forum = (closeModal) => {
   }, [topics, setCookies]);
 
   const handleTopicClick = (topicId) => {
-    navigateTo(`/forum/${topicId}`);
+    navigateTo(`/forum/${topicId}`, { state: { topics } });
   };
+  
+    function getCategoryClass(category) {
+      switch (category) {
+        case 'DETI':
+          return 'category1';
+        case 'Duvida':
+          return 'category2';
+        case 'Tech':
+          return 'category3';
+        case 'Eventos':
+            return 'category4';
+        // Add more cases for other categories if needed
+        default:
+          return '';
+      }
+    }
+  
   
 
   return (
@@ -55,16 +73,20 @@ export const Forum = (closeModal) => {
       />
 
       <div className="topic-box">
-        {topics.map((topic) => (
-          <div
+      {topics.reverse().map((topic) => (
+        <div
             key={topic.id}
-            className="topic-title-box"
+            className={`topic-title-box ${getCategoryClass(topic.category)}`}
             onClick={() => handleTopicClick(topic.id)} // Add onClick handler
-          >
+        >
             <h2>{topic.title}</h2>
-          </div>
+            <p>{topic.content.slice(0, 40)}...</p>
+            <p>Autor:{} | Categoria: {topic.category}</p>
+        </div>
         ))}
+
       </div>
     </div>
+
   );
 };

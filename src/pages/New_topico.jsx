@@ -31,10 +31,11 @@ const New_topico = ({ handleFormSubmit }) => {
           value={topicCategory}
           onChange={(e) => setTopicCategory(e.target.value)}
         >
-          <option value="Categoria">Categoria2</option>
+          <option value="Categoria">Categoria</option>
           <option value="DETI">DETI</option>
           <option value="Duvida">Dúvidas</option>
           <option value="Tech">Tech</option>
+          <option value="Eventos">Eventos</option>
         </select>
         <textarea
           name="topicContent"

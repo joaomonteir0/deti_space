@@ -65,7 +65,7 @@ export const Forum = ({closeModal,}) => {
   
 
   return (
-    <div className="holder" style={{ marginTop: '40px' }}>
+    <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px' }}>
       <Button
         conteudo={<NewTopico handleFormSubmit={handleFormSubmit} closeModal={closeModal} />}
         title="Criar um novo tópico"

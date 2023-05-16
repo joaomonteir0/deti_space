@@ -1,0 +1,68 @@
+.ms-3 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.divBalao{
+    width: 60%;
+    padding-top: 10px;
+}
+
+.balao {
+    position: relative;
+    background-color: #ebeaea;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: text;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balao1 {
+    position: relative;
+    background-color: #ebeaea;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.redesSociais{
+    display: grid;
+    padding-top: 10px;
+    grid-template-columns: 15% 15% 15%;
+}
+
+.divlinkedin{
+    padding-right: 10px;
+}
+.texto {
+    margin: 0;
+    color: #000000;
+    font-size: 16px;
+    outline: none;
+    padding-left: 20px;
+}
+
+.texto1{
+    padding-left: 10px;
+    color: #000000;
+    margin: 0;
+    align-items: start !important;
+    outline: none;
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

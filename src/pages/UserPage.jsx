@@ -1,37 +1,57 @@
 import userIcon from '../assets/Maria.png';
 import pencilImg from '../assets/pencil.png';
 import { useState } from 'react';
+import './UserPage.css'
+import linkedin from '../assets/linkedin.png';
+import email from '../assets/email.png';
+import github from '../assets/github.png';
 
 export const UserPage = () => {
-    const [readOnly,setReadOnly] = useState(true);
-    return(
-        <div className="container w-75" style={{marginTop: "5rem"}}>
+    const [readOnly, setReadOnly] = useState(true);
+    const [bioText, setBioText] = useState("Minha bio...");
+
+    const toggleEditMode = () => {
+        setReadOnly(!readOnly);
+    };
+
+    return (
+        <div className="container w-75" style={{ marginTop: "5rem" }}>
             <div className="row">
                 <div className="d-flex">
                     <div>
-                        <img src={userIcon} style={{width: "5rem"}}/>
+                        <img src={userIcon} style={{ width: "14rem" }} alt="User Icon" />
                     </div>
-                    <div className='ms-3'>
-                        <span className='fs-3'>Maria Ribeiro</span><br/>
-                        <span className='fs-5'>LECI</span>
+                    <div className="ms-3">
+                        <span className="fs-3">Maria Ribeiro</span><br />
+                        <span className="fs-5">LECI</span>
+                        <span className="fs-5">3ª Matricula</span>
                     </div>
                 </div>
             </div>
-            <div className="row mt-3 flex-nowrap">
-                <div className='position-relative'>
-                    <textarea className='form-control' readOnly={readOnly} style={{resize:"none"}}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ducimus, earum tempora illo possimus id laborum inventore architecto exercitationem eveniet rem quidem officia, eum, voluptatibus nemo. Qui nisi harum enim!
-                    </textarea>
-                    <span className='position-absolute top-0 start-100 translate-middle'>
-                        <button className='btn' onClick={() => {setReadOnly(false)}}>
-                            <img src={pencilImg} style={{width: "1.5rem"}}/>
-                        </button>
-                    </span>
-                    <span className='position-absolute top-100 end-0 p-2' style={{visibility: readOnly ? 'hidden' : 'visible'}}>
-                        <button className='btn btn-primary' onClick={() => {setReadOnly(true)}}>
-                            OK
-                        </button>
-                    </span>
+            <div className="divBalao">
+                <div class="balao">
+                    <p class="texto" contentEditable placeholder='Bio...'></p>
+                    <button onClick={() => setReadOnly(true)}>Salvar</button>
+                </div>
+            </div>
+            <div className="redesSociais">
+                <div className="divlinkedin">
+                    <div class="balao1">
+                        <img src={linkedin} style={{ width: "2rem" }}></img>
+                        <p class="texto1">Linkedin</p>
+                    </div>
+                </div>
+                <div className="divlinkedin">
+                    <div class="balao1">
+                        <img src={email} style={{ width: "2rem" }}></img>
+                        <p class="texto1">Email</p>
+                    </div>
+                </div>
+                <div className="divlinkedin">
+                    <div class="balao1">
+                        <img src={github} style={{ width: "2rem" }}></img>
+                        <p class="texto1">Github</p>
+                    </div>
                 </div>
             </div>
             <div className="row mt-5" id="Apontamentos">
@@ -53,7 +73,7 @@ function Note(props) {
                 <span className='border border-black rounded-circle fs-3 p-2'>{props.subject}</span>
             </div>
             <div className='ms-3'>
-                <span className='text-emphasis fs-4'>{props.description}</span><br/>
+                <span className='text-emphasis fs-4'>{props.description}</span><br />
                 <span className='badge border border-primary rounded text-black'>{props.date}</span>
                 <span className='badge border border-success rounded text-black ms-2'>{props.size}</span>
             </div>

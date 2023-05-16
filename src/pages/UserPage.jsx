@@ -2,6 +2,9 @@ import userIcon from '../assets/Maria.png';
 import pencilImg from '../assets/pencil.png';
 import { useState } from 'react';
 import './UserPage.css'
+import linkedin from '../assets/linkedin.png';
+import email from '../assets/email.png';
+import github from '../assets/github.png';
 
 export const UserPage = () => {
     const [readOnly, setReadOnly] = useState(true);
@@ -25,19 +28,31 @@ export const UserPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="balao">
-                <p
-                    className={`texto ${readOnly ? "read-only" : ""}`}
-                    contentEditable={!readOnly}
-                    onInput={(event) => setBioText(event.target.textContent)}
-                >
-                    {bioText}
-                </p>
-                {!readOnly && (
-                    <button className="btn btn-success" onClick={toggleEditMode}>
-                        Salvar
-                    </button>
-                )}
+            <div className="divBalao">
+                <div class="balao">
+                    <p class="texto" contentEditable placeholder='Bio...'></p>
+                    <button onClick={() => setReadOnly(true)}>Salvar</button>
+                </div>
+            </div>
+            <div className="redesSociais">
+                <div className="divlinkedin">
+                    <div class="balao1">
+                        <img src={linkedin} style={{ width: "2rem" }}></img>
+                        <p class="texto1">Linkedin</p>
+                    </div>
+                </div>
+                <div className="divlinkedin">
+                    <div class="balao1">
+                        <img src={email} style={{ width: "2rem" }}></img>
+                        <p class="texto1">Email</p>
+                    </div>
+                </div>
+                <div className="divlinkedin">
+                    <div class="balao1">
+                        <img src={github} style={{ width: "2rem" }}></img>
+                        <p class="texto1">Github</p>
+                    </div>
+                </div>
             </div>
             <div className="row mt-5" id="Apontamentos">
                 <p className='fs-2'>Apontamentos</p>

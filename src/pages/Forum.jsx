@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
+import { useNavigate } from 'react-router-dom';
 import './News.css';
 import NewTopico from './New_topico.jsx';
 import Button from '../components/Button.jsx';
 import { Link } from 'react-router-dom';
 import './Forum.css';
 
-
-export const Forum = ({closeModal,}) => {
+export const Forum = ({ closeModal }) => {
   const [topics, setTopics] = useState([]);
   const [cookies, setCookies] = useCookies(['topics']);
   const [loading, setLoading] = useState(true);
-  const navigateTo = useNavigate(); // Create a navigateTo function
+  const navigateTo = useNavigate();
 
   const generateUniqueId = () => {
     const timestamp = Date.now().toString(36);
@@ -36,7 +35,7 @@ export const Forum = ({closeModal,}) => {
       ...topic,
     };
     setTopics((prevTopics) => [...prevTopics, newTopic]);
-  };    
+  };
 
   useEffect(() => {
     setCookies('topics', topics, { path: '/' });
@@ -45,48 +44,87 @@ export const Forum = ({closeModal,}) => {
   const handleTopicClick = (topicId) => {
     navigateTo(`/forum/${topicId}`, { state: { topics } });
   };
-  
-    function getCategoryClass(category) {
-      switch (category) {
-        case 'DETI':
-          return 'category1';
-        case 'Duvida':
-          return 'category2';
-        case 'Tech':
-          return 'category3';
-        case 'Eventos':
-            return 'category4';
-        // Add more cases for other categories if needed
-        default:
-          return '';
-      }
-    }
-  
-  
+
+  function getCategoryClass(category) {
+    // Category class logic
+  }
+
+  const [searchText, setSearchText] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const topicsPerPage = 9;
+
+  const filteredTopics = topics.filter((topic) =>
+    topic.title.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  // Calculate the index range of topics to display based on the current page
+  const indexOfLastTopic = currentPage * topicsPerPage;
+  const indexOfFirstTopic = indexOfLastTopic - topicsPerPage;
+  const currentTopics = filteredTopics.slice(indexOfFirstTopic, indexOfLastTopic);
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(filteredTopics.length / topicsPerPage);
+
+  // Function to handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1); // Reset the current page when search text changes
+  }, [searchText]);
 
   return (
     <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px' }}>
-      <Button
-        conteudo={<NewTopico handleFormSubmit={handleFormSubmit} closeModal={closeModal} />}
-        title="Criar um novo tópico"
-        desc="Lorem ipsum dolor sit amet."
-      />
+      <div className="topo-forum-title">
+        - Forum -
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, nihil.</p>
+      </div>
+      <div className="topo-forum">
+        <Button
+          conteudo={<NewTopico handleFormSubmit={handleFormSubmit} closeModal={closeModal} />}
+          title="Criar um novo tópico"
+          desc="Lorem ipsum dolor sit amet."
+        />
+        <input
+          type="search"
+          name=""
+          id=""
+          placeholder="Pesquisar por um tópico"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+      </div>
 
       <div className="topic-box">
-      {topics.reverse().map((topic) => (
-        <div
+        {currentTopics.map((topic) => (
+          <div
             key={topic.id}
             className={`topic-title-box ${getCategoryClass(topic.category)}`}
-            onClick={() => handleTopicClick(topic.id)} // Add onClick handler
-        >
+            onClick={() => handleTopicClick(topic.id)}
+          >
             <h2>{topic.title}</h2>
             <p>{topic.content.slice(0, 40)}...</p>
-            <p>Autor:{} | Categoria: {topic.category}</p>
-        </div>
+            <p>
+              Autor: {} | Categoria: {topic.category}
+            </p>
+          </div>
         ))}
-
       </div>
-    </div>
 
+      {filteredTopics.length > topicsPerPage && (
+        <div className="pagination">
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+              key={index}
+              className={`page-number ${currentPage === index + 1 ? 'active' : ''}`}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };

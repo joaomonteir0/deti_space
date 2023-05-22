@@ -126,3 +126,52 @@ select{
 .topico .alinhar:hover {
     background-color: var(--verde);
 }
+
+.topo-forum{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center !important;
+}
+
+.topo-forum input{
+    border:1px solid black;
+    border-radius: 8px;
+    padding: 10px 20px;
+    justify-self: end;
+    width: 60%;
+    max-height: 44px;
+    outline: none;
+}
+
+.topo-forum input::placeholder{
+    color:rgb(43, 43, 43);
+}
+
+.topo-forum button{
+    margin: 0 !important;;
+}
+
+.topo-forum input:focus{
+    background-color: var(--azul);
+    color: white;
+}
+
+.topo-forum-title{
+    margin-top: 50px;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.topo-forum-title p{
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.search-input::placeholder {
+    /* Assuming you have Font Awesome library included and the correct class for the magnifying glass icon */
+    content: "\f002"; /* Unicode value for the magnifying glass icon */
+    font-family: "Font Awesome";
+  }
+  

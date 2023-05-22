@@ -42,6 +42,8 @@ export const Forum = ({ loginToken }) => {
     setTopics((prevTopics) => [...prevTopics, newTopic]);
     closeModal();
     setShowConfirmation(false);
+    window.location.reload();
+
   };
 
   const generateId = () => {
@@ -85,9 +87,29 @@ export const Forum = ({ loginToken }) => {
     navigateTo(`/forum/${topicId}`, { state: { topics } });
   };
 
-  function getCategoryClass(category) {
-    // Category class logic
-  }
+  const getCategoryClass = (category) => {
+    let categoryClass = '';
+  
+    switch (category) {
+      case 'DETI':
+        categoryClass = 'category-deti';
+        break;
+      case 'Duvida':
+        categoryClass = 'category-duvida';
+        break;
+      case 'Tech':
+        categoryClass = 'category-tech';
+        break;
+      case 'Eventos':
+        categoryClass = 'category-eventos';
+        break;
+      default:
+        categoryClass = 'category-default';
+        break;
+    }
+  
+    return categoryClass;
+  };
 
   const [searchText, setSearchText] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -111,11 +133,13 @@ export const Forum = ({ loginToken }) => {
     setCurrentPage(1);
   }, [searchText]);
 
+  
+
   return (
     <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px' }}>
       <div className="topo-forum-title">
         - Forum -
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, nihil.</p>
+        <p>Conecta-te, partilha e aprende no nosso Fórum</p>
       </div>
       <div className="topo-forum">
         {loginToken ? (
@@ -140,13 +164,13 @@ export const Forum = ({ loginToken }) => {
         {currentTopics.map((topic) => (
           <div
             key={topic.id}
-            className={`topic-title-box ${getCategoryClass(topic.category)}`}
+            className={`topic-title-box`}
             onClick={() => handleTopicClick(topic.id)}
           >
             <h2 style={{ fontSize: '20px' }}>{topic.title}</h2>
             <p style={{ fontSize: '15px' }}>{topic.content.slice(0, 40)}...</p>
             <p style={{ fontSize: '13px' }}>
-              Autor: {topic.author} | <span>Categoria: {topic.category}</span>
+              Autor: {topic.author} || <span className={`voumematar ${getCategoryClass(topic.category)}`}>{topic.category}</span>
             </p>
           </div>
         ))}

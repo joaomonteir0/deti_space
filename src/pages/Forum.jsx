@@ -86,10 +86,10 @@ export const Forum = ({ closeModal }) => {
   const handleCategorySelection = (category) => {
     setSelectedCategory(category);
   };
-
+  
   return (
     <div className="content1">
-      <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px' }}>
+      <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px', marginLeft: '350px', marginRight: '80px' }}>
         <div className="topo-forum-title">
           - Forum -
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, nihil.</p>
@@ -141,17 +141,20 @@ export const Forum = ({ closeModal }) => {
         )}
       </div>
       <div className="category-container">
-        <h3>Filter by Category:</h3>
-        <div className="category-buttons">
-          {categoryOptions.map((category) => (
-            <button
-              key={category.value}
-              className={`category-button ${selectedCategory === category.value ? 'active' : ''}`}
-              onClick={() => handleCategorySelection(category.value)}
-            >
-              {category.label}
-            </button>
-          ))}
+        <div className="categoryColor">
+
+          <h3>Filtro por Categoria:</h3>
+          <div className="category-buttons">
+            {categoryOptions.map((category) => (
+              <button
+                key={category.value}
+                className={`category-button ${selectedCategory === category.value ? 'active' : ''}`}
+                onClick={() => handleCategorySelection(category.value)}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

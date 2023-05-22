@@ -1,142 +1,143 @@
 .ms-3 {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 20px;
 }
 
 .divBalao {
-    padding-top: 10px;
-    grid-template-columns: 60% 10%;
+  padding-top: 10px;
+  grid-template-columns: 60% 10%;
 }
 
 .balao {
-    position: relative;
-    background-color: #ebeaea;
-    border-radius: 10px;
-    padding: 10px;
+  position: relative;
+  background-color: #ebeaea;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .texto {
-    margin: 0;
-    color: #000000;
-    font-size: 16px;
+  margin: 0;
+  color: #000000;
+  font-size: 16px;
 }
 
 textarea {
-    height: 100px;
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #ebeaea;
-    border-radius: 4px;
-    resize: none;
+  height: 100px;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ebeaea;
+  border-radius: 4px;
+  resize: none;
 }
 
 button {
-    background-color: var(--cinza);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding-left: 10px;
+  background-color: var(--cinza);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding-left: 10px;
 }
 
 button.editing {
-    background-color: #4caf50;
+  background-color: #4caf50 ;
+}
+
+.botaocinza{
+  background-color: var(--cinza);
 }
 
 .balao {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 textarea.descricao {
-    flex-grow: 1;
-    margin-right: 10px;
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
 .balao {
-    position: relative;
-    background-color: #ebeaea;
-    border-radius: 10px;
-    padding: 10px;
-    cursor: text;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: relative;
+  background-color: #ebeaea;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: text;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .balao1 {
-    position: relative;
-    background-color: #ebeaea;
-    border-radius: 10px;
-    padding: 10px;
-    align-items: center;
-    display: flex;
+  position: relative;
+  background-color: #ebeaea;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
 }
 
-
 .redesSociais {
-    display: grid;
-    padding-top: 10px;
-    grid-template-columns: 15% 15% 15%;
+  display: grid;
+  padding-top: 10px;
+  grid-template-columns: 15% 15% 15%;
 }
 
 .divlinkedin {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 .texto1 {
-    padding-left: 10px;
-    color: #000000;
-    margin: 0;
-    align-items: start !important;
-    outline: none;
+  padding-left: 10px;
+  color: #000000;
+  margin: 0;
+  align-items: start !important;
+  outline: none;
 }
 
 .texto {
-    margin: 0;
-    color: #000000;
-    font-size: 16px;
-    outline: none;
-    padding-left: 20px;
+  margin: 0;
+  color: #000000;
+  font-size: 16px;
+  outline: none;
+  padding-left: 20px;
 }
 
-
-
 button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .balao1 {
-    position: relative;
-    background-color: #ebeaea;
-    border-radius: 10px;
-    padding: 10px;
-    align-items: center;
-    display: flex;
+  position: relative;
+  background-color: #ebeaea;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
 }
 
 .redesSociais {
-    display: grid;
-    padding-top: 10px;
-    grid-template-columns: 15% 15% 15%;
+  display: grid;
+  padding-top: 10px;
+  grid-template-columns: 15% 15% 15%;
 }
 
 .divlinkedin {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 .texto1 {
-    padding-left: 10px;
-    color: #000000;
-    margin: 0;
-    align-items: start !important;
-    outline: none;
+  padding-left: 10px;
+  color: #000000;
+  margin: 0;
+  align-items: start !important;
+  outline: none;
 }

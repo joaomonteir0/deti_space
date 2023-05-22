@@ -53,7 +53,7 @@ export const UserPage = () => {
       ) : (
         <div style={{ display: "flex", alignItems: "center" }}>
           <textarea className="descricao" value={description} readOnly={!isEditing} />
-          <button onClick={handleEditClick}>Editar</button>
+          <button className="botaocinza" onClick={handleEditClick}>Editar</button>
         </div>
       )}
     </div>

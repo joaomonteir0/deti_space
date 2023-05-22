@@ -187,8 +187,8 @@ textarea:focus {
 
 /* pesquisa avancada */
 .content1 {
+    display: grid;
     grid-template-columns: 80% 20%;
-    background-color: red;
 }
 
 .category-container {
@@ -196,6 +196,15 @@ textarea:focus {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    align-items: center;
+    padding-top: 300px;
+    padding-right: 100px;
+}
+
+.categoryColor{
+    background-color: #e6e6e6 !important;
+    padding: 20px 20px 20px 20px ;
+    border-radius: 5%
 }
 
 .category-buttons {
@@ -205,17 +214,15 @@ textarea:focus {
 }
 
 .category-button {
-    width: 100%;
     padding: 10px;
     border-radius: 5px;
-    background-color: rgb(221, 221, 221);
+    background-color:var(--cinza);
     border: none;
     cursor: pointer;
     transition: 0.2s all ease-in-out;
-    text-align: left;
 }
 
 .category-button.active {
-    background-color: var(--azul);
+    background-color: #4caf50;
     color: white;
 }

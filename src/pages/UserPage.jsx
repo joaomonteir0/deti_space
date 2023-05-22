@@ -1,17 +1,25 @@
 import userIcon from '../assets/Maria.png';
-import pencilImg from '../assets/pencil.png';
 import { useState } from 'react';
-import './UserPage.css'
+import './UserPage.css';
 import linkedin from '../assets/linkedin.png';
 import email from '../assets/email.png';
 import github from '../assets/github.png';
 
 export const UserPage = () => {
     const [readOnly, setReadOnly] = useState(true);
-    const [bioText, setBioText] = useState("Minha bio...");
+    const [description, setDescription] = useState('Descrição inicial');
+    const [isEditing, setIsEditing] = useState(false);
 
-    const toggleEditMode = () => {
-        setReadOnly(!readOnly);
+    const handleEditClick = () => {
+        setIsEditing(true);
+    };
+
+    const handleSaveClick = () => {
+        setIsEditing(false);
+    };
+
+    const handleChange = (event) => {
+        setDescription(event.target.value);
     };
 
     return (
@@ -22,34 +30,50 @@ export const UserPage = () => {
                         <img src={userIcon} style={{ width: "14rem" }} alt="User Icon" />
                     </div>
                     <div className="ms-3">
-                        <span className="fs-3">Maria Ribeiro</span><br />
+                        <span className="fs-3">Maria Ribeiro</span>
+                        <br />
                         <span className="fs-5">LECI</span>
                         <span className="fs-5">3ª Matricula</span>
                     </div>
                 </div>
             </div>
-            <div className="divBalao">
-                <div class="balao">
-                    <p class="texto" contentEditable placeholder='Bio...'></p>
-                    <button onClick={() => setReadOnly(true)}>Salvar</button>
-                </div>
-            </div>
+            <div className={`divBalao ${isEditing ? 'editing' : ''}`}>
+      {isEditing ? (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <textarea
+            className="descricao"
+            value={description}
+            onChange={handleChange}
+            readOnly={!isEditing}
+          />
+          <button className="editing" onClick={handleSaveClick}>
+            Salvar
+          </button>
+        </div>
+      ) : (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <textarea className="descricao" value={description} readOnly={!isEditing} />
+          <button onClick={handleEditClick}>Editar</button>
+        </div>
+      )}
+    </div>
+
             <div className="redesSociais">
                 <div className="divlinkedin">
                     <div class="balao1">
-                        <img src={linkedin} style={{ width: "2rem" }}></img>
+                        <img src={linkedin} style={{ width: "2rem" }} alt="Linkedin" />
                         <p class="texto1">Linkedin</p>
                     </div>
                 </div>
                 <div className="divlinkedin">
                     <div class="balao1">
-                        <img src={email} style={{ width: "2rem" }}></img>
+                        <img src={email} style={{ width: "2rem" }} alt="Email" />
                         <p class="texto1">Email</p>
                     </div>
                 </div>
                 <div className="divlinkedin">
                     <div class="balao1">
-                        <img src={github} style={{ width: "2rem" }}></img>
+                        <img src={github} style={{ width: "2rem" }} alt="Github" />
                         <p class="texto1">Github</p>
                     </div>
                 </div>
@@ -62,7 +86,7 @@ export const UserPage = () => {
                     <Note subject="P2" description="funções e recursividade" date="30-02-2021" size="5mb" />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

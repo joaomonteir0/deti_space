@@ -219,3 +219,37 @@ select{
     gap: 10px;
   }
   
+  /* CSS for category classes */
+.category-deti {
+    background-color: #1fd249; /* Set the desired background color for the DETI category */
+  }
+  
+  .category-duvida {
+    background-color: #ff00d4; /* Set the desired background color for the Duvida category */
+  }
+  
+  .category-tech {
+    background-color: #1ad0e1; /* Set the desired background color for the Tech category */
+  }
+  
+  .category-eventos {
+    background-color: #eda520; /* Set the desired background color for the Eventos category */
+  }
+  
+  .category-default {
+    background-color: #cccccc; /* Set a default background color for other categories */
+  }
+  
+  /* CSS for category tag */
+  .category-tag {
+    padding: 2px 6px;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+  .voumematar{
+      padding: 2px 10px;
+      border-radius: 15px;
+      font-weight: 700;
+  }

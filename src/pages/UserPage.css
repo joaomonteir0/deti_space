@@ -107,7 +107,7 @@ textarea.descricao {
 button {
     margin-top: 10px;
     padding: 8px 16px;
-    background-color: var(--cinza);
+    background-color: #4caf50;
     color: #fff;
     border: none;
     border-radius: 4px;

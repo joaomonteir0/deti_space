@@ -46,13 +46,15 @@ select{
 .topic-box{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    height: 350px;
     gap:10px;
     box-sizing: border-box;
     margin-top: 20px;
 }
 
 .topic-title-box{
-    background-color: rgb(253, 219, 219);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
     height: 110px;
     padding: 10px;
     border-radius: 5px;
@@ -169,9 +171,51 @@ select{
     font-size: 22px;
 }
 
-.search-input::placeholder {
-    /* Assuming you have Font Awesome library included and the correct class for the magnifying glass icon */
-    content: "\f002"; /* Unicode value for the magnifying glass icon */
-    font-family: "Font Awesome";
+.pagination button{
+    margin-right: 10px;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--azul);
+}
+
+.pagination button:hover{
+    background-color: var(--verde);
+}
+
+.pagination button.active{
+    background-color: #d09c01;
+}
+
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .confirmation-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .confirmation-box h3 {
+    margin-top: 0;
+  }
+  
+  .confirmation-box p {
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-box .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
   }
   

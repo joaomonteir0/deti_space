@@ -23,7 +23,7 @@ const Button = ({ conteudo, title, desc, handleFormSubmit }) => {
 
   return (
     <div>
-      <button onClick={openModal}>Criar Tópico</button>
+      <button onClick={openModal}><i class="fa-solid fa-pen-to-square"></i> Criar Tópico</button>
       {isOpen && (
         <Modal
           closeModal={closeModal}

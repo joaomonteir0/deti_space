@@ -178,51 +178,51 @@ textarea:focus {
     font-size: 22px;
 }
 
-.search-input::placeholder {
-    /* Assuming you have Font Awesome library included and the correct class for the magnifying glass icon */
-    content: "\f002";
-    /* Unicode value for the magnifying glass icon */
-    font-family: "Font Awesome";
+.pagination button{
+    margin-right: 10px;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--azul);
 }
 
-/* pesquisa avancada */
-.content1 {
-    display: grid;
-    grid-template-columns: 80% 20%;
+.pagination button:hover{
+    background-color: var(--verde);
 }
 
-.category-container {
+.pagination button.active{
+    background-color: #d09c01;
+}
+
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    justify-content: center;
     align-items: center;
-    padding-top: 300px;
-    padding-right: 100px;
-}
-
-.categoryColor{
-    background-color: #e6e6e6 !important;
-    padding: 20px 20px 20px 20px ;
-    border-radius: 5%
-}
-
-.category-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.category-button {
-    padding: 10px;
+    z-index: 9999;
+  }
+  
+  .confirmation-box {
+    background-color: white;
+    padding: 20px;
     border-radius: 5px;
-    background-color:var(--cinza);
-    border: none;
-    cursor: pointer;
-    transition: 0.2s all ease-in-out;
-}
-
-.category-button.active {
-    background-color: #4caf50;
-    color: white;
-}
+    text-align: center;
+  }
+  
+  .confirmation-box h3 {
+    margin-top: 0;
+  }
+  
+  .confirmation-box p {
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-box .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  

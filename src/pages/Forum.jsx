@@ -7,16 +7,48 @@ import Button from '../components/Button.jsx';
 import { Link } from 'react-router-dom';
 import './Forum.css';
 
-export const Forum = ({ closeModal }) => {
+export const Forum = ({ loginToken }) => {
   const [topics, setTopics] = useState([]);
   const [cookies, setCookies] = useCookies(['topics']);
   const [loading, setLoading] = useState(true);
   const navigateTo = useNavigate();
 
-  const generateUniqueId = () => {
-    const timestamp = Date.now().toString(36);
-    const random = Math.random().toString(36).substr(2, 5);
-    return timestamp + random;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [tempTopic, setTempTopic] = useState({});
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleFormSubmit = (topic) => {
+    setTempTopic(topic);
+    setShowConfirmation(true);
+    setTimeout(() => {
+      handleTopicClick(newTopic.id);
+    }, 2000);
+  };
+
+  const gotoForum = (id) => {
+    navigateTo(`/forum/${id}`, { state: { topics } });
+  };
+
+  const handleConfirmation = () => {
+    const newTopic = { ...tempTopic, id: generateId() }; // Generate a unique ID for the new topic
+    setTopics((prevTopics) => [...prevTopics, newTopic]);
+    closeModal();
+    setShowConfirmation(false);
+  };
+
+  const generateId = () => {
+    // Generate a unique ID for the topic
+    // You can use a library like uuid to generate a unique ID or implement your own logic
+    // For simplicity, let's assume we're using a simple incrementing ID
+    return String(topics.length + 1);
   };
 
   useEffect(() => {
@@ -24,18 +56,26 @@ export const Forum = ({ closeModal }) => {
       const storedTopics = cookies.topics;
       if (storedTopics) {
         setTopics(storedTopics);
+      } else {
+        const initialTopics = [
+          { id: '1', title: 'Tips for Effective Studying', category: 'DETI', content: 'Lorem ipsum dolor sit amet.', author: 'John Doe' },
+          { id: '2', title: 'The Impact of Technology', category: 'Tech', content: 'Lorem ipsum dolor sit amet consectetur.', author: 'Jane Smith' },
+          { id: '3', title: 'Strategies for Time Management', category: 'DETI', content: 'Lorem ipsum dolor sit amet.', author: 'Alice Johnson' },
+          { id: '4', title: 'The Benefits of Extracurricular', category: 'Tech', content: 'Lorem ipsum dolor sit amet consectetur.', author: 'Bob Anderson' },
+          { id: '5', title: 'Overcoming Math Anxiety', category: 'Duvida', content: 'Lorem ipsum dolor sit amet.', author: 'Eve Wilson' },
+          { id: '6', title: 'Preparing for College Admissions', category: 'Eventos', content: 'Lorem ipsum dolor sit amet consectetur.', author: 'Michael Davis' },
+          { id: '7', title: 'The Importance of Communication', category: 'Tech', content: 'Lorem ipsum dolor sit amet.', author: 'Sophia Clark' },
+          { id: '8', title: 'Effective Note-Taking Techniques', category: 'DETI', content: 'Lorem ipsum dolor sit amet consectetur.', author: 'Oliver Taylor' },
+          { id: '9', title: 'The Role of Arts in Education', category: 'Tech', content: 'Lorem ipsum dolor sit amet.', author: 'Emily Walker' },
+          { id: '10', title: 'Developing Critical Thinking', category: 'DETI', content: 'Lorem ipsum dolor sit amet consectetur.', author: 'Daniel Wilson' },
+          { id: '11', title: 'The Importance of Physical Education', category: 'Tech', content: 'Lorem ipsum dolor sit amet.', author: 'Ava Martin' },          // ...other initial topics
+        ];
+        setTopics(initialTopics);
+        setCookies('topics', initialTopics, { path: '/' });
       }
       setLoading(false);
     }
-  }, [cookies, loading]);
-
-  const handleFormSubmit = (topic) => {
-    const newTopic = {
-      id: generateUniqueId(),
-      ...topic,
-    };
-    setTopics((prevTopics) => [...prevTopics, newTopic]);
-  };
+  }, [cookies, loading, setCookies]);
 
   useEffect(() => {
     setCookies('topics', topics, { path: '/' });
@@ -53,27 +93,23 @@ export const Forum = ({ closeModal }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const topicsPerPage = 9;
 
-  const filteredTopics = topics.filter((topic) =>
-    topic.title.toLowerCase().includes(searchText.toLowerCase())
-  );
+  const filteredTopics = topics
+    .filter((topic) => topic.title.toLowerCase().includes(searchText.toLowerCase()))
+    .reverse();
 
-  // Calculate the index range of topics to display based on the current page
   const indexOfLastTopic = currentPage * topicsPerPage;
   const indexOfFirstTopic = indexOfLastTopic - topicsPerPage;
   const currentTopics = filteredTopics.slice(indexOfFirstTopic, indexOfLastTopic);
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(filteredTopics.length / topicsPerPage);
 
-  // Function to handle page change
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   useEffect(() => {
-    setCurrentPage(1); // Reset the current page when search text changes
+    setCurrentPage(1);
   }, [searchText]);
-
   // pesquisa avancada
   const [selectedCategory, setSelectedCategory] = useState('');
   const categoryOptions = [

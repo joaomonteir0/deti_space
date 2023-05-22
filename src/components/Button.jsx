@@ -1,24 +1,39 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-import '../pages/Forum.css';
 
-const Button = ({ closeMolda, conteudo, title, desc }) => {
+const Button = ({ conteudo, title, desc, handleFormSubmit }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
-    console.log('modal is open');
+    setFormSubmitted(false);
   };
 
   const closeModal = () => {
     setIsOpen(false);
-    console.log('modal is closed');
+    
+  };
+
+  const handleSubmit = () => {
+    setFormSubmitted(true);
+    closeModal();
+    handleFormSubmit();
   };
 
   return (
     <div>
-      <button onClick={openModal} className={'botao-criar-estilinho'}><i class="fa-solid fa-pen-to-square"></i> Criar Tópico</button>
-      {isOpen && <Modal closeModal={closeModal} conteudo={conteudo} title={title} desc={desc}/>}
+      <button onClick={openModal}><i class="fa-solid fa-pen-to-square"></i> Criar Tópico</button>
+      {isOpen && (
+        <Modal
+          closeModal={closeModal}
+          conteudo={conteudo}
+          title={title}
+          desc={desc}
+          formSubmitted={formSubmitted}
+          handleSubmit={handleSubmit}
+        />
+      )}
     </div>
   );
 };

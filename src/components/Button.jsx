@@ -17,7 +17,7 @@ const Button = ({ closeMolda, conteudo, title, desc }) => {
 
   return (
     <div>
-      <button onClick={openModal} className={'botao-criar-estilinho'}>Criar Tópico</button>
+      <button onClick={openModal} className={'botao-criar-estilinho'}><i class="fa-solid fa-pen-to-square"></i> Criar Tópico</button>
       {isOpen && <Modal closeModal={closeModal} conteudo={conteudo} title={title} desc={desc}/>}
     </div>
   );

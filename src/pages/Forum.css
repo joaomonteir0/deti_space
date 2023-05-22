@@ -1,14 +1,16 @@
-.criar-topico{
+.criar-topico {
     display: flex;
     flex-direction: column;
 }
 
-.criar-topico form{
+.criar-topico form {
     display: flex;
     flex-direction: column;
 }
 
-.criar-topico form input,textarea, select{
+.criar-topico form input,
+textarea,
+select {
     max-width: 50%;
     border-radius: 5px;
     border: none;
@@ -21,20 +23,21 @@
     margin-bottom: 15px;
 }
 
-select{
+select {
     height: 50px;
 }
 
-.criar-topico form input::placeholder{
+.criar-topico form input::placeholder {
     color: rgb(129, 129, 129);
 }
 
-.criar-topico form input:focus, textarea:focus{
+.criar-topico form input:focus,
+textarea:focus {
     background-color: var(--azul);
     color: white;
 }
 
-.criar-topico-text{
+.criar-topico-text {
     width: 100% !important;
     max-width: 100% !important;
     height: 300px;
@@ -43,15 +46,15 @@ select{
 
 /* pagina onde aparecem todos os tópicos /forum */
 
-.topic-box{
+.topic-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap:10px;
+    gap: 10px;
     box-sizing: border-box;
     margin-top: 20px;
 }
 
-.topic-title-box{
+.topic-title-box {
     background-color: rgb(253, 219, 219);
     height: 110px;
     padding: 10px;
@@ -61,26 +64,31 @@ select{
     transition: 0.1s all ease-in-out;
 }
 
-.topic-title-box:hover{
+.topic-title-box:hover {
     background-color: goldenrod;
 }
 
 .category1 {
-    background-color: rgb(218, 255, 218); /* Replace with the desired color for category 1 */
-  }
-  
-  .category2 {
-    background-color: rgb(199, 199, 253); /* Replace with the desired color for category 2 */
-  }
-  
-  .category3 {
-    background-color: rgb(239, 176, 176); /* Replace with the desired color for category 3 */
-  }
-  .category4 {
-    background-color: rgb(215, 215, 215); /* Replace with the desired color for category 3 */
-  }
+    background-color: rgb(218, 255, 218);
+    /* Replace with the desired color for category 1 */
+}
 
-.botao-criar-estilinho{
+.category2 {
+    background-color: rgb(199, 199, 253);
+    /* Replace with the desired color for category 2 */
+}
+
+.category3 {
+    background-color: rgb(239, 176, 176);
+    /* Replace with the desired color for category 3 */
+}
+
+.category4 {
+    background-color: rgb(215, 215, 215);
+    /* Replace with the desired color for category 3 */
+}
+
+.botao-criar-estilinho {
     padding: 10px 20px;
     background-color: var(--azul);
     font-weight: 600;
@@ -91,11 +99,11 @@ select{
     color: white;
 }
 
-.botao-criar-estilinho:hover{
+.botao-criar-estilinho:hover {
     background-color: var(--verde);
 }
 
-.topico{
+.topico {
     margin: 0 auto;
     width: 1120px;
     margin-top: 60px;
@@ -104,7 +112,7 @@ select{
     border-radius: 5px;
 }
 
-.topico .categoria{
+.topico .categoria {
     width: fit-content;
     padding: 5px 15px;
     border-radius: 5px;
@@ -112,11 +120,11 @@ select{
     background-color: var(--verde);
 }
 
-.topico .conteudo{
+.topico .conteudo {
     font-size: 18px;
 }
 
-.topico .alinhar{
+.topico .alinhar {
     width: fit-content;
     padding: 5px 20px;
     float: right;
@@ -127,14 +135,14 @@ select{
     background-color: var(--verde);
 }
 
-.topo-forum{
+.topo-forum {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center !important;
 }
 
-.topo-forum input{
-    border:1px solid black;
+.topo-forum input {
+    border: 1px solid black;
     border-radius: 8px;
     padding: 10px 20px;
     justify-self: end;
@@ -143,20 +151,21 @@ select{
     outline: none;
 }
 
-.topo-forum input::placeholder{
-    color:rgb(43, 43, 43);
+.topo-forum input::placeholder {
+    color: rgb(43, 43, 43);
 }
 
-.topo-forum button{
-    margin: 0 !important;;
+.topo-forum button {
+    margin: 0 !important;
+    ;
 }
 
-.topo-forum input:focus{
+.topo-forum input:focus {
     background-color: var(--azul);
     color: white;
 }
 
-.topo-forum-title{
+.topo-forum-title {
     margin-top: 50px;
     font-size: 50px;
     font-weight: 600;
@@ -164,14 +173,49 @@ select{
     margin-bottom: 30px;
 }
 
-.topo-forum-title p{
+.topo-forum-title p {
     font-weight: 300;
     font-size: 22px;
 }
 
 .search-input::placeholder {
     /* Assuming you have Font Awesome library included and the correct class for the magnifying glass icon */
-    content: "\f002"; /* Unicode value for the magnifying glass icon */
+    content: "\f002";
+    /* Unicode value for the magnifying glass icon */
     font-family: "Font Awesome";
-  }
-  
+}
+
+/* pesquisa avancada */
+.content1 {
+    grid-template-columns: 80% 20%;
+    background-color: red;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(221, 221, 221);
+    border: none;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    text-align: left;
+}
+
+.category-button.active {
+    background-color: var(--azul);
+    color: white;
+}

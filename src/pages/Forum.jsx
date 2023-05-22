@@ -74,57 +74,87 @@ export const Forum = ({ closeModal }) => {
     setCurrentPage(1); // Reset the current page when search text changes
   }, [searchText]);
 
+  // pesquisa avancada
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const categoryOptions = [
+    { label: 'DETI', value: 'DETI' },
+    { label: 'Dúvidas', value: 'Dúvidas' },
+    { label: 'Tech', value: 'Tech' },
+    { label: 'Eventos', value: 'Eventos' },
+  ];
+
+  const handleCategorySelection = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
-    <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px' }}>
-      <div className="topo-forum-title">
-        - Forum -
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, nihil.</p>
-      </div>
-      <div className="topo-forum">
-        <Button
-          conteudo={<NewTopico handleFormSubmit={handleFormSubmit} closeModal={closeModal} />}
-          title="Criar um novo tópico"
-          desc="Lorem ipsum dolor sit amet."
-        />
-        <input
-          type="search"
-          name=""
-          id=""
-          placeholder="Pesquisar por um tópico"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-      </div>
+    <div className="content1">
+      <div className="holder" style={{ marginTop: '40px', maxWidth: '1120px' }}>
+        <div className="topo-forum-title">
+          - Forum -
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, nihil.</p>
+        </div>
+        <div className="topo-forum">
+          <Button
+            conteudo={<NewTopico handleFormSubmit={handleFormSubmit} closeModal={closeModal} />}
+            title="Criar um novo tópico"
+            desc="Lorem ipsum dolor sit amet."
+          />
+          <input
+            type="search"
+            name=""
+            id=""
+            placeholder="Pesquisar por um tópico"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
 
-      <div className="topic-box">
-        {currentTopics.map((topic) => (
-          <div
-            key={topic.id}
-            className={`topic-title-box ${getCategoryClass(topic.category)}`}
-            onClick={() => handleTopicClick(topic.id)}
-          >
-            <h2>{topic.title}</h2>
-            <p>{topic.content.slice(0, 40)}...</p>
-            <p>
-              Autor: {} | Categoria: {topic.category}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {filteredTopics.length > topicsPerPage && (
-        <div className="pagination">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              className={`page-number ${currentPage === index + 1 ? 'active' : ''}`}
-              onClick={() => handlePageChange(index + 1)}
+        <div className="topic-box">
+          {currentTopics.map((topic) => (
+            <div
+              key={topic.id}
+              className={`topic-title-box ${getCategoryClass(topic.category)}`}
+              onClick={() => handleTopicClick(topic.id)}
             >
-              {index + 1}
+              <h2>{topic.title}</h2>
+              <p>{topic.content.slice(0, 40)}...</p>
+              <p>
+                Autor: { } | Categoria: {topic.category}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {filteredTopics.length > topicsPerPage && (
+          <div className="pagination">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                className={`page-number ${currentPage === index + 1 ? 'active' : ''}`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="category-container">
+        <h3>Filter by Category:</h3>
+        <div className="category-buttons">
+          {categoryOptions.map((category) => (
+            <button
+              key={category.value}
+              className={`category-button ${selectedCategory === category.value ? 'active' : ''}`}
+              onClick={() => handleCategorySelection(category.value)}
+            >
+              {category.label}
             </button>
           ))}
         </div>
-      )}
+      </div>
     </div>
+
   );
 };

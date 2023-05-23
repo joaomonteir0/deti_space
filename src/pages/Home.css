@@ -26,7 +26,8 @@ body{
   color: white;
   font-size: 180px;
   letter-spacing: 5px;
-  text-shadow: 2px 0px 10px rgba(255, 255, 255, 0.51);
+  text-shadow: 2px 0px 10px rgba(0, 0, 0, 0.301);
+  margin-top: -50px;
 }
 
 
@@ -36,4 +37,14 @@ body{
   font-size: 30px;
   letter-spacing: 5px;
   text-shadow: 2px 0px 10px rgba(255, 255, 255, 0.51);
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.makeItBlink {
+  animation: blink 1s infinite;
 }

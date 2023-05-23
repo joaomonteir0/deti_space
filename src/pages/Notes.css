@@ -26,6 +26,7 @@
     border: 1px solid black;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    margin-bottom: 20px;
 
 }
 
@@ -56,4 +57,14 @@
     height: fit-content;
     padding: 5px 10px;
     max-width: unset;
+}
+
+.input-filter-notes{
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }

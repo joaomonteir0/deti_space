@@ -31,9 +31,11 @@ export const UserBox = (props) => {
               <div className="modal-body">
                 <p className="fs-5">Tem a certeza que deseja sair?</p>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                <button type="button" className="btn btn-danger" onClick={props.onClick} data-bs-dismiss="modal">Sim</button>
+                <button className="user-box-button" onClick={() => props.onClick(false)}>
+                  <i className="fa-solid fa-user"></i> Sair
+                </button>
               </div>
             </div>
           </div>

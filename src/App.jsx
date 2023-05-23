@@ -1,8 +1,7 @@
-// App.jsx
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
+import Cookies from 'js-cookie';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { News } from './pages/News';
@@ -18,6 +17,28 @@ import TopicPage from './pages/TopicPage';
 function App() {
   const [isLoggedIn, setLogIn] = useState(false);
   const [topics, setTopics] = useState([]);
+  console.log("login state: " + Cookies.get('login'));
+  if (Cookies.get('login') == undefined) {
+    Cookies.set('login', JSON.stringify(false));
+  }
+
+  useEffect(() => {
+    const loginCookie = Cookies.get('login');
+    if (loginCookie === JSON.stringify(true)) {
+      setLogIn(true);
+    }
+  }, []);
+
+  const doLogin = () => {
+    if (isLoggedIn) {
+      setLogIn(false);
+      Cookies.set('login', JSON.stringify(false));
+      window.location.reload();
+    } else {
+      setLogIn(true);
+      Cookies.set('login', JSON.stringify(true));
+    }
+  };
 
   return (
     <div>
@@ -25,10 +46,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/news" element={<News />} />
-        <Route path="/notes" element={<Notes isLoggedIn={isLoggedIn} />} />
+        <Route path="/notes" element={<Notes />} />
         <Route
           path="/forum"
-          element={<Forum setTopics={setTopics} isLoggedIn={isLoggedIn} loginToken={isLoggedIn} />} // Pass loginToken prop
+          element={<Forum setTopics={setTopics} loginToken={isLoggedIn} />} // Pass loginToken prop
         />
         <Route path="/forum/:topicId" element={<TopicPage topics={topics} />} />
         <Route path="/noticia_exemplo" element={<Example_new />} />
@@ -36,9 +57,9 @@ function App() {
         <Route path="/user" element={<UserPage />} />
       </Routes>
       {isLoggedIn ? (
-        <UserBox onClick={() => setLogIn(false)} />
+        <UserBox onClick={() => doLogin()} />
       ) : (
-        <LogIn onClick={() => setLogIn(true)} />
+        <LogIn onClick={() => doLogin()} />
       )}
     </div>
   );

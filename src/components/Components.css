@@ -118,7 +118,7 @@
     -webkit-box-shadow: 10px 10px 17px -7px rgba(0, 0, 0, 0.24);
     -moz-box-shadow: 10px 10px 17px -7px rgba(0, 0, 0, 0.24);
     box-shadow: 10px 10px 17px -7px rgba(0, 0, 0, 0.24);
-    padding: 5px 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     margin-top: 5px;
@@ -126,7 +126,7 @@
 }
 
 .login-button:hover{
-    background-color: var(--bege);
+    background-color: var(--azul);
 }
 
 .login-button img{

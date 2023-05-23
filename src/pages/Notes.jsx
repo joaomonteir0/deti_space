@@ -148,7 +148,7 @@ export const Notes = () => {
                 <button className='botao-notas' onClick={() => {
                     setSelectedApontamento(apontamento);
                     setShowModal(true);
-                }}>Ver Apontamento <i class="fa-solid fa-arrow-right"></i></button>
+                }}>Ver Apontamento <i className="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
           ))}

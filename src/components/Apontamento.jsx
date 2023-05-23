@@ -13,7 +13,7 @@ const Apontamento = ({ apontamento, show, handleClose }) => {
         <p>Cadeira: {apontamento.cadeira}</p>
         <p>Tipo: {apontamento.tipo}</p>
         <p>Data: {apontamento.date}</p>
-        <button className='botao-notas'>Transferir arquivo</button>
+        <button className='botao-notas'><i class="fa-solid fa-file-arrow-down"></i> Transferir arquivo</button>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>

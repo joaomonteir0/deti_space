@@ -51,7 +51,7 @@
 }
 
 .tags .tag{
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 0px 10px;
     font-weight: 600;
 }

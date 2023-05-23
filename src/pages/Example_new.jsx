@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './News.css'
 
 export const Example_new = () => {
@@ -7,14 +8,19 @@ export const Example_new = () => {
                 <div className="img-new">
                     <img src="src/assets/1.jpg" alt="" />
                 </div>
-                <div className="topo">
-                    <div className="title">Lorem ipsum dolor sit amet.</div>
-                    <div className="voltar">
-                        <a href="/news">« Voltar à pagina de notícias</a>
+                <div className="">
+                        <Link to="/news">
+                            <button className='btn btn-primary rounded'>
+                                Voltar à página das notícias
+                            </button>
+                        </Link>
                     </div>
+                <div className="topo">
+                    <div className='fs-1'>Lorem ipsum dolor sit amet.</div>
                 </div>
                 <div className="infos">
                     <div className="tags">
+                        <div className='fs-5'>Tags:</div>
                         <div className="tag bgred">DETI</div>
                         <div className="tag bggreen">Students@DETI</div>
                         <div className="tag bgblue">Eventos</div>

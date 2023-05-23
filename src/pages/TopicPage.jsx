@@ -17,7 +17,7 @@ const TopicPage = () => {
 
   return (
     <div className='topico'>
-      <a className="voltar alinhar" href="/forum">« Voltar para o fórum</a>
+      <a className="voltar alinhar" href="/forum"><i class="fa-solid fa-backward"></i>  Voltar para o fórum</a>
       <h2 className='titulo'>{topicData.title}</h2>
       <p className='categoria'>{topicData.category}</p>
       <p className='conteudo'>{topicData.content}</p>

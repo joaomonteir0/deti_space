@@ -155,7 +155,7 @@ export const Notes = () => {
         </div>
         <div className="right">
         <span>Pesquisar</span>
-        <div className="select-notes">
+        <div className="select-notes" style={{display:'flex', flexDirection:'column', gap:'15px'}}>
         <input
             type="text"
             placeholder="Pesquisar por título"
@@ -171,7 +171,7 @@ export const Notes = () => {
             className="input-filter-notes"
         />
         <label htmlFor="">Filtrar por:</label>
-        <select name="" id="cadeira" onChange={(e) => setCadeiraFilter(e.target.value)}>
+        <select name="" id="cadeira" onChange={(e) => setCadeiraFilter(e.target.value)} style={{height:'50px' ,maxHeight: '50px', marginBottom:'10px !important'}}>
             <option value="">Todas as cadeiras</option>
               <option value="Cálculo">Cálculo</option>
               <option value="POO">POO</option>
@@ -180,7 +180,7 @@ export const Notes = () => {
               <option value="IES">IES</option>
               <option value="FP">FP</option>
         </select>
-        <select name="" id="tipo" onChange={(e) => setTipoFilter(e.target.value)}>
+        <select name="" id="tipo" onChange={(e) => setTipoFilter(e.target.value)} style={{height:'50px' ,maxHeight: '50px', marginBottom:'10px !important'}}>
             <option value="">Todos os tipos</option>
               <option value="Resumo Teórico">Resumo Teórico</option>
               <option value="Guião Prático">Guião Prático</option>

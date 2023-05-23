@@ -11,7 +11,7 @@ export const UserBox = (props) => {
             <div className="user-buttons">
               <span>
                 <Link to="/user">
-                  <button className="btn btn-primary me-2">Opcoes</button>
+                  <button className="btn btn-primary me-2">Perfil</button>
                 </Link>
               </span>
               <button className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalSair">Sair</button>

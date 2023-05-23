@@ -47,7 +47,8 @@
     margin-right: 1.5rem;
     display: flex;
     align-items: center;
-    background-color: #dad7d7bb;
+    background-color: #ffffffbb;
+    border: 1px solid black;    
     padding: 0.5rem;
     border-radius: 0.5rem;
     -webkit-box-shadow: 10px 10px 17px -7px rgba(0, 0, 0, 0.24);

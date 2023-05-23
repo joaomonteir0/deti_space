@@ -34,7 +34,7 @@ export const UserBox = (props) => {
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Não</button>
                 <button className="user-box-button" onClick={() => props.onClick(false)}>
-                  <i className="fa-solid fa-user"></i> Sair
+                  <i class="fa-solid fa-right-from-bracket"></i> Sair
                 </button>
               </div>
             </div>

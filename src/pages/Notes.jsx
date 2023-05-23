@@ -4,9 +4,81 @@ import './Notes.css';
 
 export const Notes = () => {
   const initialApontamentos = [
-    { id: 1, title: 'Apontamento 1', author: 'Author 1', date: '2023-05-20', cadeira: 'Cálculo', tipo: 'Resumo Teórico' },
-    { id: 2, title: 'Apontamento 2', author: 'Author 2', date: '2023-05-21', cadeira: 'POO', tipo: 'Guião Prático' },
+    {
+      id: 1,
+      title: 'Descobrindo Derivadas',
+      author: 'Sofia Silva',
+      date: '2023-05-20',
+      cadeira: 'Cálculo',
+      tipo: 'Resumo Teórico',
+    },
+    {
+      id: 2,
+      title: 'Programando em Java',
+      author: 'Miguel Santos',
+      date: '2023-05-21',
+      cadeira: 'POO',
+      tipo: 'Guião Prático',
+    },
+    {
+      id: 3,
+      title: 'Explorando a Interação Humano-Computador',
+      author: 'Ana Costa',
+      date: '2023-05-22',
+      cadeira: 'IHC',
+      tipo: 'Trabalho',
+    },
+    {
+      id: 4,
+      title: 'Resolvendo Equações Quadráticas',
+      author: 'Rui Fernandes',
+      date: '2023-05-23',
+      cadeira: 'Álgebra',
+      tipo: 'Resumo Teórico',
+    },
+    {
+      id: 5,
+      title: 'Aprenda a Programar em Python',
+      author: 'Carolina Rodrigues',
+      date: '2023-05-24',
+      cadeira: 'FP',
+      tipo: 'Resumo Teórico',
+    },
+    {
+      id: 6,
+      title: 'Princípios de Arquitetura de Software',
+      author: 'Gonçalo Pereira',
+      date: '2023-05-25',
+      cadeira: 'IES',
+      tipo: 'Resumo Teórico',
+    },
+    {
+      id: 7,
+      title: 'Acessibilidade Digital',
+      author: 'Mariana Oliveira',
+      date: '2023-05-26',
+      cadeira: 'IHC',
+      tipo: 'Trabalho',
+    },
+    {
+      id: 8,
+      title: 'Design Centrado no Usuário',
+      author: 'Pedro Santos',
+      date: '2023-05-27',
+      cadeira: 'IHC',
+      tipo: 'Resumo Teórico',
+    },
+    {
+      id: 9,
+      title: 'Usabilidade em Interfaces Web',
+      author: 'Inês Pereira',
+      date: '2023-05-28',
+      cadeira: 'IHC',
+      tipo: 'Guião Prático',
+    },
   ];
+
+  initialApontamentos.sort((a, b) => new Date(a.date) - new Date(b.date)).reverse();
 
   const initialApontamentosJSON = JSON.stringify(initialApontamentos);
 
@@ -54,7 +126,7 @@ export const Notes = () => {
                 </span>
               </div>
               <div className="lerApontamento">
-                <button>Ver Apontamento</button>
+                <button>Ver Apontamento <i class="fa-solid fa-arrow-right"></i></button>
               </div>
             </div>
           ))}
@@ -62,13 +134,15 @@ export const Notes = () => {
         <div className="right">
           <span>Pesquisar</span>
           <div className="select-notes">
-              <input type="text" name="" id="title" className='input-filter-notes'/>
+            <input type="text" name="" id="title" className="input-filter-notes" />
             <select name="" id="cadeira" onChange={(e) => setCadeiraFilter(e.target.value)}>
-              <option value="">Todas as cadeira</option>
+              <option value="">Todas as cadeiras</option>
               <option value="Cálculo">Cálculo</option>
               <option value="POO">POO</option>
               <option value="IHC">IHC</option>
-              <option value="Algebra">Algebra</option>
+              <option value="Algebra">Álgebra</option>
+              <option value="IES">IES</option>
+              <option value="FP">FP</option>
             </select>
             <select name="" id="tipo" onChange={(e) => setTipoFilter(e.target.value)}>
               <option value="">Todos os tipos</option>

@@ -2,6 +2,7 @@ import { PageHeader } from "../components/PageHeader"
 import { SearchBar } from "../components/SearchBar"
 import { Select } from "../components/Select"
 import { Link } from 'react-router-dom';
+import './Notes.css';
 
 export const Notes = (props) => {
     const badges = {
@@ -28,34 +29,37 @@ export const Notes = (props) => {
     })
 
     return(
-        <>
-            <PageHeader title="Apontamentos" />
-            <div style={{marginLeft: "20rem", marginTop: "10rem"}}>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-7">
-                            <div className="container">
-                                <div className="row g-4">
-                                    {notesComponent}
-                                </div>
-                            </div>
+        <div className="holder-notes">
+            <div className="topo-forum-title">
+                - Apontamentos -
+                <p>Partilhar e aprender</p>
+            </div>
+            <div className="notes-grid">
+                <div className="left">
+                    <div className="apontamento">
+                        <div className="dados">
+                            <span className="title">apontamento.title</span><br />
+                            <span className="title">apontamento.author - apontamento.date</span>
                         </div>
-                        <div className="col-md-auto">
-                            {props.isLoggedIn ? 
-                                <Link to="/user#Apontamentos">
-                                    <button className="btn btn-primary mb-3">Meus Apontamentos</button> 
-                                </Link>
-                                : ''}  
-                            <SearchBar width={"20rem"} class={"input-group mb-3"}/>
-                            <Select default={"Ano Letivo"} options={["2022-2023","2021-2022","2020-2021","2019-2020"]}/>
-                            <Select default={"Disciplina"} options={["Calculo 1","MPEI","Sistemas Operativos","Alga","IHC"]}/>
-                            <Select default={"Tipo"} options={["Testes e exames","Resumos","Slides Teoricos","Guioes Praticos","Praticas"]} />
+                        <div className="lerApontamento">
+                            <button>Ver Apontamento</button>
                         </div>
                     </div>
                 </div>
+                <div className="right">
+                    <span>Pesquisar</span>
+                    <div className="select-notes">
+                        <select name="" id="">
+                            <option value="">Cadeira</option>
+                            <option value="Cálculo">Cálculo</option>
+                            <option value="POO">POO</option>
+                            <option value="IHC">IHC</option>
+                            <option value="Algebra">Algebra</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </>
-
+        </div>
     )
 }
 
@@ -70,10 +74,8 @@ function NotesCard(props) {
         })
 
     return(
-        <div className="container border border-secondary rounded">
-            <p><span className="fs-4 text-secondary-emphasis">{props.header}</span><span className="fs-5 text-secondary">  {props.year}</span></p>
-            <p className="fs-3 text-light-emphasis">{props.title}</p>
-            <p>{badges}</p>
-        </div>
+        <div>a</div>
+
+
     )
 }
